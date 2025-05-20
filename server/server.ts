@@ -1,3 +1,4 @@
+const { generateHanoiSteps } = require('./features/generateHanoiSteps');
 const express = require('express');
 const cors = require('cors');
 const http = require('http');
@@ -12,8 +13,7 @@ const server = http.createServer(app);
 app.post('/hanoi', async (req, res) => {
   try {
     const { rings } = req.body;
-    console.log(rings)
-    const results = [{},{},{}];
+    const results = await generateHanoiSteps(Number(rings));
     res.json(results);
   } catch (err) {
     console.error(err);

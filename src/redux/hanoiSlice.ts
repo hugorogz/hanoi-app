@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 const initialState: any = {
-  results: [],
+  steps: [],
   loading: false,
 };
 
@@ -9,8 +9,8 @@ const hanoiSlice = createSlice({
   name: 'hanoi',
   initialState,
   reducers: {
-    setResults: (state, action: PayloadAction<[]>) => {
-      state.notes = action.payload;
+    setSteps: (state, action: PayloadAction<[]>) => {
+      state.steps = action.payload;
     },
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.loading = action.payload;
@@ -18,6 +18,6 @@ const hanoiSlice = createSlice({
   },
 });
 
-export const { setResults, setLoading } = hanoiSlice.actions;
+export const { setSteps, setLoading } = hanoiSlice.actions;
 
 export default hanoiSlice.reducer;

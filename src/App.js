@@ -1,5 +1,6 @@
 import './App.css';
 import HanoiForm from './components/HanoiForm';
+import HanoiVisualization from './components/HanoiVisualization';
 
 function App() {
   return (
@@ -9,6 +10,8 @@ function App() {
       </header>
 
       <HanoiForm />
+
+      <HanoiVisualization />
     </div>
   );
 }

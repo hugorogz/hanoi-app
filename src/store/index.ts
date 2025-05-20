@@ -3,7 +3,7 @@ import hanoiReducer from '../redux/hanoiSlice';
 
 export const store = configureStore({
   reducer: {
-    results: hanoiReducer,
+    steps: hanoiReducer,
   },
 });
 

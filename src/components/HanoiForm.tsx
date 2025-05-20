@@ -2,7 +2,7 @@ import { Button, Input } from "@mui/material"
 import { useDispatch } from 'react-redux';
 import { GetHanoiSolution } from "../api/hanoi-api";
 import { AppDispatch } from "../store";
-import { setResults } from "../redux/hanoiSlice";
+import { setSteps } from "../redux/hanoiSlice";
 import { useState } from "react";
 
 const HanoiForm = () => {
@@ -20,16 +20,16 @@ const HanoiForm = () => {
     <Button 
       id="hanoi-solve-button"
       style={{ 
-        backgroundColor: `${!rings ? 'grey' : '#007FFF'}`, 
+        backgroundColor: `${Number(rings) < 1 ? 'grey' : '#007FFF'}`, 
         marginLeft: 16, 
         color: 'white' 
       }} 
       onClick={async () => {
-        const results =  await GetHanoiSolution(rings);
-        console.log(results)
-        dispatch(setResults(results))
+        dispatch(setSteps([]))
+        const steps =  await GetHanoiSolution(rings);
+        dispatch(setSteps(steps))
       }}
-      disabled={!rings}
+      disabled={Number(rings) < 1}
     >
       Resolve Hanoi
     </Button>
