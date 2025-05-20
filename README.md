@@ -1,2 +1,0 @@
-# hanoi-app
-Hanoi App
