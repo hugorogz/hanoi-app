@@ -1,0 +1,1 @@
+export const hanoiEndpoint = 'http://localhost:5555/hanoi';
