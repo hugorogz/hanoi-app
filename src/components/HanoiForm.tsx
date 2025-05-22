@@ -14,7 +14,7 @@ const HanoiForm = () => {
       placeholder="Number of rings"
       onChange={(e) => setRings(e.currentTarget.value)}
       inputProps={{
-        type: 'number'
+        type: 'number' // use numerical input type prop
       }}
     />
     <Button 
@@ -26,7 +26,9 @@ const HanoiForm = () => {
       }} 
       onClick={async () => {
         dispatch(setSteps([]))
+        // call /hanoi endpoint (POST) to generate steps, pass the number of rings
         const steps =  await GetHanoiSolution(rings);
+        // once steps are generated, setSteps in redux store
         dispatch(setSteps(steps))
       }}
       disabled={Number(rings) < 1}

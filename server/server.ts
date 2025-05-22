@@ -1,13 +1,11 @@
 const { generateHanoiSteps } = require('./features/generateHanoiSteps');
 const express = require('express');
 const cors = require('cors');
-const http = require('http');
 const app = express();
 const port = 5555;
 
 app.use(cors()); // to allow UI access the server, since they are on diff ports
 app.use(express.json()); // to parse JSON request bodies
-const server = http.createServer(app);
 
 // POST to obtain hanoi results
 app.post('/hanoi', async (req, res) => {

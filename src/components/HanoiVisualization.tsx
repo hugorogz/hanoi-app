@@ -31,28 +31,32 @@ const HanoiVisualization = () => {
 
     // Setup initial tower A with all the rings
     const initialTowers: TowerState = {
+      // Create an array of rings in descending order [maxRing, ..., 1] to represent the initial tower state
       A: Array.from({ length: maxRing }, (_, i) => maxRing - i), // [n, ..., 1]
       B: [],
       C: [],
     };
 
+    // set initialTowers as towers
     setTowers(initialTowers);
    
-    
+    // function to run the animation function each 500 ms
     const startAnimation = async () => {
-      await new Promise((res) => setTimeout(res, 500)); // wait a bit befote start
+      await new Promise((res) => setTimeout(res, 500)); // wait a bit befote start each tiime calling animateSteps
       animateSteps(steps, initialTowers, setAnimating, setTowers);
     };
 
+    // run the animation
     startAnimation();
   }, [steps]);
 
   // Render a tower column with rings
   const renderTower = (name: "A" | "B" | "C") => {
-    const rings = towers[name];
+    const rings = towers[name]; // gets the rings for each tower name
     return (
       <div className="tower" style={{ height: `${towerHeight}px`, width: `${towerWidth}px` }}>
         {rings.map((ring, i) => (
+          // the numbers in the towers
           <div
             key={i}
             className="disk"
@@ -69,6 +73,8 @@ const HanoiVisualization = () => {
   };
 
   return (
+    // the container of the towers and render the Labels (Head) of each tower, 
+    // and below, render teach tower's content (the numbers representing the rings)
     <div style={{ textAlign: "center", marginTop: 32 }}>
       <div className="towers-container">
         {["A", "B", "C"].map((name) => (

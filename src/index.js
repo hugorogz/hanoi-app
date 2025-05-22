@@ -8,7 +8,8 @@ import { store } from './store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={store}> 
+  // wrapping our app with redux Provider so App is connected to redux store
+  <Provider store={store}>
     <App />
   </Provider>
 );
